@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\Employees.lsml" Checksum="4477B46F539E85BA95B5E3233085B8C07F7768F609F8BFBD2CD2F727612B5676" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\HazardTypes.lsml" Checksum="D88DE82A746112C89FD30B1B17B787DF402BE649E5AD66C8AEBDB77279CA1615" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\RiskAssessmentHazards.lsml" Checksum="134160558E72956F9AFE9854D88C68434071D86DFBAADFF1AEB08C14B1C19EBF" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\RiskAssessmentReviews.lsml" Checksum="4615866EB6FA5295784AB06BB1BD819C22DA49CC3AE03977C5DD47301AF1268E" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\MyRiskAssessmentReviews.lsml" Checksum="41903523F657A1BF8FA06FF12DA0BB5420C8B851B5604143FBE5038D71B80D25" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\OverdueRiskAssessmentReviews.lsml" Checksum="1BC6E032DC1DA97AE5517D37D4A2FB1A5E87AE41A1BBC1F3B597AE8E0FCD4982" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\RiskAssessments.lsml" Checksum="BEB126AC601E15D1A36C1AD7706F033C60FAEE44D9334BF9823453FCDF5A4507" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\MyRiskAssessments.lsml" Checksum="20D46B91D0F66054C135A946541CF074AD5318545276150D521D017D56FF4E33" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\RiskAssessmentStatuses.lsml" Checksum="EFA5D120B81E2AE3C139B1382DB64D838F8629CA20EC442DE0B78C2A8E93FF84" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\RiskAssessors.lsml" Checksum="526FF4E0E266755ABBD67A12F64911CCEF151342A6A2EE28A910099389A79BF8" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\DataSources\ApplicationData\RiskTypes.lsml" Checksum="9FABDBE5194C24B1CADEC5A64FF20BBE9FF4152C8F7DDEFD85738AC1BB1640EB" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\Properties\DataSources\ApplicationData.lsml" Checksum="4269B7A1C607D3AEA1D34BA816EE24BE223A014F83A97F863157835AA09C6154" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.Server\Properties\Service.lsml" Checksum="492B031E040EA4896530822C2F7DE4087E6DFE7B1A6F8D22A0FD0FB9FC359F25" />
+  </Documents>
+</ModelDocumentManifest>

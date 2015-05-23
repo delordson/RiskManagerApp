@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="RiskAssessor">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="Employee"
+        Association="RiskAssessor_Employee"
+        FromEnd="RiskAssessor"
+        ToEnd="Employee" />
+      <EntityProperty
+        Name="DateTrained"
+        PropertyType=":Date">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="DateRefresherTrainingDue"
+        PropertyType=":Date">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="RiskAssessments_RiskAssessor"
+        Association="RiskAssessment_RiskAssessor"
+        FromEnd="RiskAssessor"
+        ToEnd="RiskAssessment" />
+      <NavigationProperty
+        Name="RiskAssessments_Approver"
+        Association="RiskAssessment_RiskAssessor1"
+        FromEnd="RiskAssessor"
+        ToEnd="RiskAssessment" />
+      <NavigationProperty
+        Name="RiskAssessmentReviews"
+        Association="RiskAssessmentReview_RiskAssessor"
+        FromEnd="RiskAssessor"
+        ToEnd="RiskAssessmentReview" />
+      <EntityProperty
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="RiskAssessors"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="RiskAssessor" />
+    <QueryOperation
+      Name="RiskAssessors_Single"
+      ReturnType="RiskAssessor">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="RiskAssessors" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="RiskAssessors_SingleOrDefault"
+      ReturnType="RiskAssessor">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="RiskAssessors" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="RiskAssessment_RiskAssessors"
+      Association="RiskAssessment_RiskAssessor">
+      <AssociationSetEnd
+        Name="RiskAssessment"
+        EntitySet="RiskAssessments" />
+      <AssociationSetEnd
+        Name="RiskAssessor"
+        EntitySet="RiskAssessors" />
+    </AssociationSet>
+    <AssociationSet
+      Name="RiskAssessment_RiskAssessor1Set"
+      Association="RiskAssessment_RiskAssessor1">
+      <AssociationSetEnd
+        Name="RiskAssessment"
+        EntitySet="RiskAssessments" />
+      <AssociationSetEnd
+        Name="RiskAssessor"
+        EntitySet="RiskAssessors" />
+    </AssociationSet>
+    <AssociationSet
+      Name="RiskAssessmentReview_RiskAssessors"
+      Association="RiskAssessmentReview_RiskAssessor">
+      <AssociationSetEnd
+        Name="RiskAssessmentReview"
+        EntitySet="RiskAssessmentReviews" />
+      <AssociationSetEnd
+        Name="RiskAssessor"
+        EntitySet="RiskAssessors" />
+    </AssociationSet>
+  </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="RiskAssessors" />
+    <AssociationSetMapping
+      AssociationSet="RiskAssessment_RiskAssessors">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="RiskAssessment_RiskAssessors" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessment_RiskAssessors]/Members[RiskAssessment]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="RiskAssessment_RiskAssessor" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessment_RiskAssessors]/Members[RiskAssessor]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="RiskAssessment_RiskAssessor1Set">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="RiskAssessment_RiskAssessor1Set" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessment_RiskAssessor1Set]/Members[RiskAssessment]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="RiskAssessment_RiskAssessor1" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessment_RiskAssessor1Set]/Members[RiskAssessor]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="RiskAssessmentReview_RiskAssessors">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="RiskAssessmentReview_RiskAssessors" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessmentReview_RiskAssessors]/Members[RiskAssessmentReview]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="RiskAssessmentReview_RiskAssessor" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessmentReview_RiskAssessors]/Members[RiskAssessor]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="RiskAssessment_RiskAssessor">
+    <AssociationEnd
+      Name="RiskAssessment"
+      Multiplicity="Many"
+      EntityType="RiskAssessment" />
+    <AssociationEnd
+      Name="RiskAssessor"
+      Multiplicity="One"
+      EntityType="RiskAssessor">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="RiskAssessment_RiskAssessor1">
+    <AssociationEnd
+      Name="RiskAssessment"
+      Multiplicity="Many"
+      EntityType="RiskAssessment" />
+    <AssociationEnd
+      Name="RiskAssessor"
+      EntityType="RiskAssessor">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="RiskAssessmentReview_RiskAssessor">
+    <AssociationEnd
+      Name="RiskAssessmentReview"
+      Multiplicity="Many"
+      EntityType="RiskAssessmentReview" />
+    <AssociationEnd
+      Name="RiskAssessor"
+      EntityType="RiskAssessor">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>

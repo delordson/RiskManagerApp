@@ -1,0 +1,2 @@
+C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="DatabaseServer" value="" />
+  <setParameter name="DatabaseName" value="RiskManagerAppData" />
+  <setParameter name="DatabaseUserName" value="" />
+  <setParameter name="DatabaseUserPassword" value="" />
+  <setParameter name="RiskManagerApp_IisWebApplication" value="Default Web Site/RiskManagerApp" />
+</parameters>

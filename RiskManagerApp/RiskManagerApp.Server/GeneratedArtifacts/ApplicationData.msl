@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="ApplicationData" StorageEntityContainer="ApplicationDataStore">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Current" ColumnName="Current" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HazardTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.HazardType)">
+        <MappingFragment StoreEntitySet="HazardTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HazardTypeDescription" ColumnName="HazardTypeDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessmentHazards">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.RiskAssessmentHazard)">
+        <MappingFragment StoreEntitySet="RiskAssessmentHazards">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HazardDescription" ColumnName="HazardDescription" />
+          <ScalarProperty Name="HazardType_RiskAssessmentHazard" ColumnName="HazardType_RiskAssessmentHazard" />
+          <ScalarProperty Name="HazardConsequence" ColumnName="HazardConsequence" />
+          <ScalarProperty Name="ControlMeasures" ColumnName="ControlMeasures" />
+          <ScalarProperty Name="RiskAssessmentHazard_RiskAssessment" ColumnName="RiskAssessmentHazard_RiskAssessment" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessmentReviews">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.RiskAssessmentReview)">
+        <MappingFragment StoreEntitySet="RiskAssessmentReviews">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateDue" ColumnName="DateDue" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+          <ScalarProperty Name="Outcome" ColumnName="Outcome" />
+          <ScalarProperty Name="RiskAssessmentReview_RiskAssessor" ColumnName="RiskAssessmentReview_RiskAssessor" />
+          <ScalarProperty Name="RiskAssessmentReview_RiskAssessment" ColumnName="RiskAssessmentReview_RiskAssessment" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessments">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.RiskAssessment)">
+        <MappingFragment StoreEntitySet="RiskAssessments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
+          <ScalarProperty Name="RiskType_RiskAssessment" ColumnName="RiskType_RiskAssessment" />
+          <ScalarProperty Name="RiskAssessmentTitle" ColumnName="RiskAssessmentTitle" />
+          <ScalarProperty Name="ProcessDescription" ColumnName="ProcessDescription" />
+          <ScalarProperty Name="PersonsAffected" ColumnName="PersonsAffected" />
+          <ScalarProperty Name="HowPersonsAffected" ColumnName="HowPersonsAffected" />
+          <ScalarProperty Name="InherentLikelihood" ColumnName="InherentLikelihood" />
+          <ScalarProperty Name="InherentImpact" ColumnName="InherentImpact" />
+          <ScalarProperty Name="InherentRisk" ColumnName="InherentRisk" />
+          <ScalarProperty Name="ControlMeasures" ColumnName="ControlMeasures" />
+          <ScalarProperty Name="ControlledLikehood" ColumnName="ControlledLikehood" />
+          <ScalarProperty Name="ControlledImpact" ColumnName="ControlledImpact" />
+          <ScalarProperty Name="ControlledRisk" ColumnName="ControlledRisk" />
+          <ScalarProperty Name="RiskAssessment_RiskAssessor" ColumnName="RiskAssessment_RiskAssessor" />
+          <ScalarProperty Name="RiskAssessmentStatus_RiskAssessment" ColumnName="RiskAssessmentStatus_RiskAssessment" />
+          <ScalarProperty Name="RiskAssessment_RiskAssessor1" ColumnName="RiskAssessment_RiskAssessor1" />
+          <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+          <ScalarProperty Name="DateEffective" ColumnName="DateEffective" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessmentStatuses">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.RiskAssessmentStatus)">
+        <MappingFragment StoreEntitySet="RiskAssessmentStatuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessors">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.RiskAssessor)">
+        <MappingFragment StoreEntitySet="RiskAssessors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTrained" ColumnName="DateTrained" />
+          <ScalarProperty Name="DateRefresherTrainingDue" ColumnName="DateRefresherTrainingDue" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.RiskType)">
+        <MappingFragment StoreEntitySet="RiskTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeOfRisk" ColumnName="TypeOfRisk" />
+          <ScalarProperty Name="InUse" ColumnName="InUse" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

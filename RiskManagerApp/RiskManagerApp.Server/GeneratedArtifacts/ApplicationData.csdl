@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Current" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RiskAssessor" Relationship="LightSwitchApplication.RiskAssessor_Employee" ToRole="RiskAssessor" FromRole="Employee" />
+  </EntityType>
+  <EntityType Name="HazardType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HazardTypeDescription" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RiskAssessmentHazards" Relationship="LightSwitchApplication.HazardType_RiskAssessmentHazard" ToRole="RiskAssessmentHazard" FromRole="HazardType" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentHazard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HazardDescription" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="HazardType_RiskAssessmentHazard" Type="Edm.Int32" Nullable="false" />
+    <Property Name="HazardConsequence" Type="Edm.String" MaxLength="255" />
+    <Property Name="ControlMeasures" Type="Edm.String" MaxLength="255" />
+    <Property Name="RiskAssessmentHazard_RiskAssessment" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="HazardType" Relationship="LightSwitchApplication.HazardType_RiskAssessmentHazard" ToRole="HazardType" FromRole="RiskAssessmentHazard" />
+    <NavigationProperty Name="RiskAssessment" Relationship="LightSwitchApplication.RiskAssessmentHazard_RiskAssessment" ToRole="RiskAssessment" FromRole="RiskAssessmentHazard" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentReview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateDue" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="DateCompleted" Type="Edm.DateTime" />
+    <Property Name="Outcome" Type="Edm.String" MaxLength="Max" />
+    <Property Name="RiskAssessmentReview_RiskAssessor" Type="Edm.Int32" />
+    <Property Name="RiskAssessmentReview_RiskAssessment" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RiskAssessmentReviewer" Relationship="LightSwitchApplication.RiskAssessmentReview_RiskAssessor" ToRole="RiskAssessor" FromRole="RiskAssessmentReview" />
+    <NavigationProperty Name="RiskAssessment" Relationship="LightSwitchApplication.RiskAssessmentReview_RiskAssessment" ToRole="RiskAssessment" FromRole="RiskAssessmentReview" />
+  </EntityType>
+  <EntityType Name="RiskAssessment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReferenceNumber" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="RiskType_RiskAssessment" Type="Edm.Int32" Nullable="false" />
+    <Property Name="RiskAssessmentTitle" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="ProcessDescription" Type="Edm.String" MaxLength="255" />
+    <Property Name="PersonsAffected" Type="Edm.String" MaxLength="10" />
+    <Property Name="HowPersonsAffected" Type="Edm.String" MaxLength="Max" />
+    <Property Name="InherentLikelihood" Type="Edm.Int32" />
+    <Property Name="InherentImpact" Type="Edm.Int32" />
+    <Property Name="InherentRisk" Type="Edm.Int32" />
+    <Property Name="ControlMeasures" Type="Edm.String" MaxLength="Max" />
+    <Property Name="ControlledLikehood" Type="Edm.Int32" />
+    <Property Name="ControlledImpact" Type="Edm.Int32" />
+    <Property Name="ControlledRisk" Type="Edm.Int32" />
+    <Property Name="RiskAssessment_RiskAssessor" Type="Edm.Int32" Nullable="false" />
+    <Property Name="RiskAssessmentStatus_RiskAssessment" Type="Edm.Int32" Nullable="false" />
+    <Property Name="RiskAssessment_RiskAssessor1" Type="Edm.Int32" />
+    <Property Name="DateApproved" Type="Edm.DateTime" />
+    <Property Name="DateEffective" Type="Edm.DateTime" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RiskType" Relationship="LightSwitchApplication.RiskType_RiskAssessment" ToRole="RiskType" FromRole="RiskAssessment" />
+    <NavigationProperty Name="RiskAssessor" Relationship="LightSwitchApplication.RiskAssessment_RiskAssessor" ToRole="RiskAssessor" FromRole="RiskAssessment" />
+    <NavigationProperty Name="RiskAssessmentStatus" Relationship="LightSwitchApplication.RiskAssessmentStatus_RiskAssessment" ToRole="RiskAssessmentStatus" FromRole="RiskAssessment" />
+    <NavigationProperty Name="RiskAssessmentApprover" Relationship="LightSwitchApplication.RiskAssessment_RiskAssessor1" ToRole="RiskAssessor" FromRole="RiskAssessment" />
+    <NavigationProperty Name="RiskAssessmentReviews" Relationship="LightSwitchApplication.RiskAssessmentReview_RiskAssessment" ToRole="RiskAssessmentReview" FromRole="RiskAssessment" />
+    <NavigationProperty Name="RiskAssessmentHazards" Relationship="LightSwitchApplication.RiskAssessmentHazard_RiskAssessment" ToRole="RiskAssessmentHazard" FromRole="RiskAssessment" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RiskAssessments" Relationship="LightSwitchApplication.RiskAssessmentStatus_RiskAssessment" ToRole="RiskAssessment" FromRole="RiskAssessmentStatus" />
+  </EntityType>
+  <EntityType Name="RiskAssessor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+    <Property Name="DateTrained" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="DateRefresherTrainingDue" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Employee" Relationship="LightSwitchApplication.RiskAssessor_Employee" ToRole="Employee" FromRole="RiskAssessor" />
+    <NavigationProperty Name="RiskAssessments_RiskAssessor" Relationship="LightSwitchApplication.RiskAssessment_RiskAssessor" ToRole="RiskAssessment" FromRole="RiskAssessor" />
+    <NavigationProperty Name="RiskAssessments_Approver" Relationship="LightSwitchApplication.RiskAssessment_RiskAssessor1" ToRole="RiskAssessment" FromRole="RiskAssessor" />
+    <NavigationProperty Name="RiskAssessmentReviews" Relationship="LightSwitchApplication.RiskAssessmentReview_RiskAssessor" ToRole="RiskAssessmentReview" FromRole="RiskAssessor" />
+  </EntityType>
+  <EntityType Name="RiskType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeOfRisk" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="InUse" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RiskAssessments" Relationship="LightSwitchApplication.RiskType_RiskAssessment" ToRole="RiskAssessment" FromRole="RiskType" />
+  </EntityType>
+  <Association Name="RiskAssessor_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RiskAssessor" Type="LightSwitchApplication.RiskAssessor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HazardType_RiskAssessmentHazard">
+    <End Role="HazardType" Type="LightSwitchApplication.HazardType" Multiplicity="1" />
+    <End Role="RiskAssessmentHazard" Type="LightSwitchApplication.RiskAssessmentHazard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HazardType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentHazard">
+        <PropertyRef Name="HazardType_RiskAssessmentHazard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentReview_RiskAssessment">
+    <End Role="RiskAssessment" Type="LightSwitchApplication.RiskAssessment" Multiplicity="1" />
+    <End Role="RiskAssessmentReview" Type="LightSwitchApplication.RiskAssessmentReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentReview">
+        <PropertyRef Name="RiskAssessmentReview_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentHazard_RiskAssessment">
+    <End Role="RiskAssessment" Type="LightSwitchApplication.RiskAssessment" Multiplicity="1" />
+    <End Role="RiskAssessmentHazard" Type="LightSwitchApplication.RiskAssessmentHazard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentHazard">
+        <PropertyRef Name="RiskAssessmentHazard_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentStatus_RiskAssessment">
+    <End Role="RiskAssessmentStatus" Type="LightSwitchApplication.RiskAssessmentStatus" Multiplicity="1" />
+    <End Role="RiskAssessment" Type="LightSwitchApplication.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessmentStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskAssessmentStatus_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessment_RiskAssessor">
+    <End Role="RiskAssessor" Type="LightSwitchApplication.RiskAssessor" Multiplicity="1" />
+    <End Role="RiskAssessment" Type="LightSwitchApplication.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskAssessment_RiskAssessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessment_RiskAssessor1">
+    <End Role="RiskAssessor" Type="LightSwitchApplication.RiskAssessor" Multiplicity="0..1" />
+    <End Role="RiskAssessment" Type="LightSwitchApplication.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskAssessment_RiskAssessor1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentReview_RiskAssessor">
+    <End Role="RiskAssessor" Type="LightSwitchApplication.RiskAssessor" Multiplicity="0..1" />
+    <End Role="RiskAssessmentReview" Type="LightSwitchApplication.RiskAssessmentReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentReview">
+        <PropertyRef Name="RiskAssessmentReview_RiskAssessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskType_RiskAssessment">
+    <End Role="RiskType" Type="LightSwitchApplication.RiskType" Multiplicity="1" />
+    <End Role="RiskAssessment" Type="LightSwitchApplication.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskType_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ApplicationData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Employees" EntityType="LightSwitchApplication.Employee" />
+    <EntitySet Name="HazardTypes" EntityType="LightSwitchApplication.HazardType" />
+    <EntitySet Name="RiskAssessmentHazards" EntityType="LightSwitchApplication.RiskAssessmentHazard" />
+    <EntitySet Name="RiskAssessmentReviews" EntityType="LightSwitchApplication.RiskAssessmentReview" />
+    <EntitySet Name="RiskAssessments" EntityType="LightSwitchApplication.RiskAssessment" />
+    <EntitySet Name="RiskAssessmentStatuses" EntityType="LightSwitchApplication.RiskAssessmentStatus" />
+    <EntitySet Name="RiskAssessors" EntityType="LightSwitchApplication.RiskAssessor" />
+    <EntitySet Name="RiskTypes" EntityType="LightSwitchApplication.RiskType" />
+    <AssociationSet Name="RiskAssessor_Employee" Association="LightSwitchApplication.RiskAssessor_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+    </AssociationSet>
+    <AssociationSet Name="HazardType_RiskAssessmentHazard" Association="LightSwitchApplication.HazardType_RiskAssessmentHazard">
+      <End Role="HazardType" EntitySet="HazardTypes" />
+      <End Role="RiskAssessmentHazard" EntitySet="RiskAssessmentHazards" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentReview_RiskAssessment" Association="LightSwitchApplication.RiskAssessmentReview_RiskAssessment">
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+      <End Role="RiskAssessmentReview" EntitySet="RiskAssessmentReviews" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentHazard_RiskAssessment" Association="LightSwitchApplication.RiskAssessmentHazard_RiskAssessment">
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+      <End Role="RiskAssessmentHazard" EntitySet="RiskAssessmentHazards" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentStatus_RiskAssessment" Association="LightSwitchApplication.RiskAssessmentStatus_RiskAssessment">
+      <End Role="RiskAssessmentStatus" EntitySet="RiskAssessmentStatuses" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessment_RiskAssessor" Association="LightSwitchApplication.RiskAssessment_RiskAssessor">
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessment_RiskAssessor1" Association="LightSwitchApplication.RiskAssessment_RiskAssessor1">
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentReview_RiskAssessor" Association="LightSwitchApplication.RiskAssessmentReview_RiskAssessor">
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+      <End Role="RiskAssessmentReview" EntitySet="RiskAssessmentReviews" />
+    </AssociationSet>
+    <AssociationSet Name="RiskType_RiskAssessment" Association="LightSwitchApplication.RiskType_RiskAssessment">
+      <End Role="RiskType" EntitySet="RiskTypes" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

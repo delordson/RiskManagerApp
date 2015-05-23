@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.DesktopClient\Properties\Client.lsml" Checksum="DC33AFF7693D406218F68FDDCA0913618CD02FD37B20CE3A73E27BC154C1AA57" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.DesktopClient\Properties\Proxies.lsml" Checksum="853F020FB433CF50F99E75AF001A900280A99D89C13D02FA4338D48794E12918" />
+  </Documents>
+</ModelDocumentManifest>

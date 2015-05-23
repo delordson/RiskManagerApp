@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Employees" EntityType="ApplicationDataStore.Employee" store:Type="Tables" Schema="dbo" Table="Employees" />
+    <EntitySet Name="HazardTypes" EntityType="ApplicationDataStore.HazardType" store:Type="Tables" Schema="dbo" Table="HazardTypes" />
+    <EntitySet Name="RiskAssessmentHazards" EntityType="ApplicationDataStore.RiskAssessmentHazard" store:Type="Tables" Schema="dbo" Table="RiskAssessmentHazards" />
+    <EntitySet Name="RiskAssessmentReviews" EntityType="ApplicationDataStore.RiskAssessmentReview" store:Type="Tables" Schema="dbo" Table="RiskAssessmentReviews" />
+    <EntitySet Name="RiskAssessments" EntityType="ApplicationDataStore.RiskAssessment" store:Type="Tables" Schema="dbo" Table="RiskAssessments" />
+    <EntitySet Name="RiskAssessmentStatuses" EntityType="ApplicationDataStore.RiskAssessmentStatus" store:Type="Tables" Schema="dbo" Table="RiskAssessmentStatuses" />
+    <EntitySet Name="RiskAssessors" EntityType="ApplicationDataStore.RiskAssessor" store:Type="Tables" Schema="dbo" Table="RiskAssessors" />
+    <EntitySet Name="RiskTypes" EntityType="ApplicationDataStore.RiskType" store:Type="Tables" Schema="dbo" Table="RiskTypes" />
+    <AssociationSet Name="RiskAssessor_Employee" Association="ApplicationDataStore.RiskAssessor_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+    </AssociationSet>
+    <AssociationSet Name="HazardType_RiskAssessmentHazard" Association="ApplicationDataStore.HazardType_RiskAssessmentHazard">
+      <End Role="HazardType" EntitySet="HazardTypes" />
+      <End Role="RiskAssessmentHazard" EntitySet="RiskAssessmentHazards" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentReview_RiskAssessment" Association="ApplicationDataStore.RiskAssessmentReview_RiskAssessment">
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+      <End Role="RiskAssessmentReview" EntitySet="RiskAssessmentReviews" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentHazard_RiskAssessment" Association="ApplicationDataStore.RiskAssessmentHazard_RiskAssessment">
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+      <End Role="RiskAssessmentHazard" EntitySet="RiskAssessmentHazards" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentStatus_RiskAssessment" Association="ApplicationDataStore.RiskAssessmentStatus_RiskAssessment">
+      <End Role="RiskAssessmentStatus" EntitySet="RiskAssessmentStatuses" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessment_RiskAssessor" Association="ApplicationDataStore.RiskAssessment_RiskAssessor">
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessment_RiskAssessor1" Association="ApplicationDataStore.RiskAssessment_RiskAssessor1">
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentReview_RiskAssessor" Association="ApplicationDataStore.RiskAssessmentReview_RiskAssessor">
+      <End Role="RiskAssessor" EntitySet="RiskAssessors" />
+      <End Role="RiskAssessmentReview" EntitySet="RiskAssessmentReviews" />
+    </AssociationSet>
+    <AssociationSet Name="RiskType_RiskAssessment" Association="ApplicationDataStore.RiskType_RiskAssessment">
+      <End Role="RiskType" EntitySet="RiskTypes" />
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="75">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Current" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="HazardType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HazardTypeDescription" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentHazard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HazardDescription" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="HazardConsequence" Type="nvarchar" MaxLength="255" />
+    <Property Name="ControlMeasures" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="HazardType_RiskAssessmentHazard" Type="int" Nullable="false" />
+    <Property Name="RiskAssessmentHazard_RiskAssessment" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentReview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateDue" Type="datetime" Nullable="false" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="Outcome" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="RiskAssessmentReview_RiskAssessment" Type="int" Nullable="false" />
+    <Property Name="RiskAssessmentReview_RiskAssessor" Type="int" />
+  </EntityType>
+  <EntityType Name="RiskAssessment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReferenceNumber" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="RiskAssessmentTitle" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ProcessDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="PersonsAffected" Type="nvarchar" MaxLength="10" />
+    <Property Name="HowPersonsAffected" Type="nvarchar(max)" />
+    <Property Name="InherentLikelihood" Type="int" />
+    <Property Name="InherentImpact" Type="int" />
+    <Property Name="InherentRisk" Type="int" />
+    <Property Name="ControlMeasures" Type="nvarchar(max)" />
+    <Property Name="ControlledLikehood" Type="int" />
+    <Property Name="ControlledImpact" Type="int" />
+    <Property Name="ControlledRisk" Type="int" />
+    <Property Name="DateApproved" Type="datetime" />
+    <Property Name="DateEffective" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="RiskAssessmentStatus_RiskAssessment" Type="int" Nullable="false" />
+    <Property Name="RiskAssessment_RiskAssessor" Type="int" Nullable="false" />
+    <Property Name="RiskAssessment_RiskAssessor1" Type="int" />
+    <Property Name="RiskType_RiskAssessment" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RiskAssessmentStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="RiskAssessor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DateTrained" Type="datetime" Nullable="false" />
+    <Property Name="DateRefresherTrainingDue" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="RiskType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TypeOfRisk" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="InUse" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Association Name="RiskAssessor_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RiskAssessor" Type="ApplicationDataStore.RiskAssessor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HazardType_RiskAssessmentHazard">
+    <End Role="HazardType" Type="ApplicationDataStore.HazardType" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessmentHazard" Type="ApplicationDataStore.RiskAssessmentHazard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HazardType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentHazard">
+        <PropertyRef Name="HazardType_RiskAssessmentHazard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentReview_RiskAssessment">
+    <End Role="RiskAssessment" Type="ApplicationDataStore.RiskAssessment" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessmentReview" Type="ApplicationDataStore.RiskAssessmentReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentReview">
+        <PropertyRef Name="RiskAssessmentReview_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentHazard_RiskAssessment">
+    <End Role="RiskAssessment" Type="ApplicationDataStore.RiskAssessment" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessmentHazard" Type="ApplicationDataStore.RiskAssessmentHazard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentHazard">
+        <PropertyRef Name="RiskAssessmentHazard_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentStatus_RiskAssessment">
+    <End Role="RiskAssessmentStatus" Type="ApplicationDataStore.RiskAssessmentStatus" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessment" Type="ApplicationDataStore.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessmentStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskAssessmentStatus_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessment_RiskAssessor">
+    <End Role="RiskAssessor" Type="ApplicationDataStore.RiskAssessor" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessment" Type="ApplicationDataStore.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskAssessment_RiskAssessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessment_RiskAssessor1">
+    <End Role="RiskAssessor" Type="ApplicationDataStore.RiskAssessor" Multiplicity="0..1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessment" Type="ApplicationDataStore.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskAssessment_RiskAssessor1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentReview_RiskAssessor">
+    <End Role="RiskAssessor" Type="ApplicationDataStore.RiskAssessor" Multiplicity="0..1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessmentReview" Type="ApplicationDataStore.RiskAssessmentReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessmentReview">
+        <PropertyRef Name="RiskAssessmentReview_RiskAssessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskType_RiskAssessment">
+    <End Role="RiskType" Type="ApplicationDataStore.RiskType" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RiskAssessment" Type="ApplicationDataStore.RiskAssessment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiskAssessment">
+        <PropertyRef Name="RiskType_RiskAssessment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

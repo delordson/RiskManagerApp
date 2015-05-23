@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Properties\Client.lsml" Checksum="6BF7A181908B9F94EBA382FFCE8BF2BFFC8E9F1A8B9353CA0FBB1E99F586DCEF" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Properties\Proxies.lsml" Checksum="D71AD61802306D9BC697FF3EED5D5C6CE26C0D5DBF2D7EB9B881572C8123AE23" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditEmployee.lsml" Checksum="005C9463CCC4716C86A5E5D6C2E041C021EBCC8883352B87160634CB0C5B11D9" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditHazardType.lsml" Checksum="A7F6681EF5AED59A4CF1D8CA722F53692EF44830BD4B2DB54DF85BC152DDCB03" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditRiskAssessment.lsml" Checksum="061D14E95131B8E9280EE06264FF01E0CC524A4D4483C7970F94397EC3538BE4" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditRiskAssessmentHazard.lsml" Checksum="A7C60219AD8FB770F516A640C296B10806F87A9031E429684E39422C8B334790" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditRiskAssessmentReview.lsml" Checksum="F6F765092998318B468C202BC6754B69E9773977FED3A8EF1899E83A137C7897" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditRiskAssessmentStatus.lsml" Checksum="F489154F048598FEE519A2C83CAAC17EF9EF8DDA7354683C88C39C067B643506" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditRiskAssessor.lsml" Checksum="87B8C7839A8774C7BA47479D89454A2F0325C414F66BE3454C7191606D4E8A4A" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\AddEditRiskType.lsml" Checksum="0EB7561CB66BB4ECD751A9A25263E7058ECB6496BFD14261FE9586A39F4A7A30" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseEmployees.lsml" Checksum="753E1961E0ECD7A0991558D643A135EB3DCBE2249B14B3D0D32F15D964927E05" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseHazardTypes.lsml" Checksum="FE645394C510C838E93461933B486A1D663400B1F53C82E2517182A8BEE9D2AC" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseMyRiskAssessmentReviews.lsml" Checksum="7DE31A506BBB19C65C3FCB8620E5FE0A4CF43A6B61834E2D14EE535759684272" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseMyRiskAssessments.lsml" Checksum="7FD6D70C91D916D37677E67792A0A1B565E1ECD444BFFB5086E396E0D12C96F9" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseOverdueRiskAssessmentReviews.lsml" Checksum="80C0EC63E246F18ED3FC9F167ED90AFC76924EC894A018468C3A591C65360D58" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseRiskAssessments.lsml" Checksum="41E2AE103598771FD79CF08819271B546006266F7F1EE28D408B81B17E7907E8" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseRiskAssessmentStatuses.lsml" Checksum="3AF18497CD5D62D491694CE6B728C654A4D4217077DE248D6FCAA271A163A33D" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseRiskAssessors.lsml" Checksum="AA5E00EF3337D2765DBBE687E92DE8D2C82E0F51B4B290FFE058E635F6279C08" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\BrowseRiskTypes.lsml" Checksum="611F594C0080322AA137F56B17E33109C78DAD63C409EF74B21F48C875866B3E" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\Home.lsml" Checksum="D8E059CE9FF6216E40CD3B0FDE2F31DC406412C869ED9FA0DEC655FBA4D67190" />
+    <Document FullPath="C:\BitBucket\RiskManagerApp\RiskManagerApp\RiskManagerApp.HTMLClient\Screens\MobileHome.lsml" Checksum="F8FC917EB1D344ACAFAC16C25252E53635EBA9384382324B08FBEA247722C052" />
+  </Documents>
+</ModelDocumentManifest>

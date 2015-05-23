@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="RiskAssessment">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="ReferenceNumber"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="RiskType"
+        Association="RiskType_RiskAssessment"
+        FromEnd="RiskAssessment"
+        ToEnd="RiskType" />
+      <EntityProperty
+        Name="RiskAssessmentTitle"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ProcessDescription"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="PersonsAffected"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="10" />
+          <SupportedValue
+            DisplayName="Employees"
+            Value="EMP" />
+          <SupportedValue
+            DisplayName="Visitors"
+            Value="VIS" />
+          <SupportedValue
+            DisplayName="Customers"
+            Value="CUS" />
+          <SupportedValue
+            DisplayName="Partners"
+            Value="PAT" />
+          <SupportedValue
+            DisplayName="Contractors"
+            Value="CON" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="HowPersonsAffected"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="InherentLikelihood"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="0 - Unlikely"
+            Value="0" />
+          <SupportedValue
+            DisplayName="1 - Rare"
+            Value="1" />
+          <SupportedValue
+            DisplayName="2 - Possible"
+            Value="2" />
+          <SupportedValue
+            DisplayName="3 - Likely"
+            Value="3" />
+          <SupportedValue
+            DisplayName="4 - Certain"
+            Value="4" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="InherentImpact"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="0 - Insignificant"
+            Value="0" />
+          <SupportedValue
+            DisplayName="1 - Minor"
+            Value="1" />
+          <SupportedValue
+            DisplayName="2 - Moderate"
+            Value="2" />
+          <SupportedValue
+            DisplayName="3 - Major"
+            Value="3" />
+          <SupportedValue
+            DisplayName="4 - Fatality"
+            Value="4" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="InherentRisk"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ControlMeasures"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="ControlledLikehood"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="0 - Unlikely"
+            Value="0" />
+          <SupportedValue
+            DisplayName="1 - Rare"
+            Value="1" />
+          <SupportedValue
+            DisplayName="2 - Possible"
+            Value="2" />
+          <SupportedValue
+            DisplayName="3 - Likely"
+            Value="3" />
+          <SupportedValue
+            DisplayName="4 - Certain"
+            Value="4" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ControlledImpact"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="0 - Insignificant"
+            Value="0" />
+          <SupportedValue
+            DisplayName="1 - Minor"
+            Value="1" />
+          <SupportedValue
+            DisplayName="2 - Moderate"
+            Value="2" />
+          <SupportedValue
+            DisplayName="3 - Major"
+            Value="3" />
+          <SupportedValue
+            DisplayName="4 - Fatality"
+            Value="4" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ControlledRisk"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="RiskAssessor"
+        Association="RiskAssessment_RiskAssessor"
+        FromEnd="RiskAssessment"
+        ToEnd="RiskAssessor" />
+      <NavigationProperty
+        Name="RiskAssessmentStatus"
+        Association="RiskAssessmentStatus_RiskAssessment"
+        FromEnd="RiskAssessment"
+        ToEnd="RiskAssessmentStatus" />
+      <NavigationProperty
+        Name="RiskAssessmentApprover"
+        Association="RiskAssessment_RiskAssessor1"
+        FromEnd="RiskAssessment"
+        ToEnd="RiskAssessor" />
+      <EntityProperty
+        Name="DateApproved"
+        PropertyType=":Date?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="DateEffective"
+        PropertyType=":Date?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="RiskAssessmentReviews"
+        Association="RiskAssessmentReview_RiskAssessment"
+        FromEnd="RiskAssessment"
+        ToEnd="RiskAssessmentReview" />
+      <NavigationProperty
+        Name="RiskAssessmentHazards"
+        Association="RiskAssessmentHazard_RiskAssessment"
+        FromEnd="RiskAssessment"
+        ToEnd="RiskAssessmentHazard" />
+      <EntityProperty
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="RiskAssessments"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="RiskAssessment" />
+    <QueryOperation
+      Name="RiskAssessments_Single"
+      ReturnType="RiskAssessment">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="RiskAssessments" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="RiskAssessments_SingleOrDefault"
+      ReturnType="RiskAssessment">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="RiskAssessments" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="RiskAssessmentReview_RiskAssessments"
+      Association="RiskAssessmentReview_RiskAssessment">
+      <AssociationSetEnd
+        Name="RiskAssessmentReview"
+        EntitySet="RiskAssessmentReviews" />
+      <AssociationSetEnd
+        Name="RiskAssessment"
+        EntitySet="RiskAssessments" />
+    </AssociationSet>
+    <AssociationSet
+      Name="RiskAssessmentHazard_RiskAssessments"
+      Association="RiskAssessmentHazard_RiskAssessment">
+      <AssociationSetEnd
+        Name="RiskAssessmentHazard"
+        EntitySet="RiskAssessmentHazards" />
+      <AssociationSetEnd
+        Name="RiskAssessment"
+        EntitySet="RiskAssessments" />
+    </AssociationSet>
+  </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="RiskAssessments">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="RiskType_RiskAssessment"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="RiskAssessment_RiskAssessor"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="RiskAssessment_RiskAssessor1"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="RiskAssessmentStatus_RiskAssessment"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="RiskAssessmentReview_RiskAssessments">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="RiskAssessmentReview_RiskAssessments" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessmentReview_RiskAssessments]/Members[RiskAssessmentReview]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="RiskAssessmentReview_RiskAssessment" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessmentReview_RiskAssessments]/Members[RiskAssessment]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="RiskAssessmentHazard_RiskAssessments">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="RiskAssessmentHazard_RiskAssessments" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessmentHazard_RiskAssessments]/Members[RiskAssessmentHazard]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="RiskAssessmentHazard_RiskAssessment" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[RiskAssessmentHazard_RiskAssessments]/Members[RiskAssessment]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="RiskAssessmentReview_RiskAssessment">
+    <AssociationEnd
+      Name="RiskAssessmentReview"
+      Multiplicity="Many"
+      EntityType="RiskAssessmentReview" />
+    <AssociationEnd
+      Name="RiskAssessment"
+      Multiplicity="One"
+      EntityType="RiskAssessment">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="RiskAssessmentHazard_RiskAssessment">
+    <AssociationEnd
+      Name="RiskAssessmentHazard"
+      Multiplicity="Many"
+      EntityType="RiskAssessmentHazard" />
+    <AssociationEnd
+      Name="RiskAssessment"
+      Multiplicity="One"
+      EntityType="RiskAssessment">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>
