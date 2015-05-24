@@ -178,5 +178,5 @@ The Risk Assessment App allows users with the right permissions to edit employee
 <h2>Summary</h2>
 The Risk Assessment App is a fully featured complete LightSwitch html5 line of business application which you can extend and adapt to your specific needs. This is a fully featured complete LightSwitch html5 line of business application which you can extend and adapt to your specific needs. 
 
-Don’t forget to try out the demo on windows azure at <a title="http://delordson.cloudapp.net/RiskManagerApp/htmlclient/" href="http://delordson.cloudapp.net/RiskManagerApp/htmlclient/">http://delordson.cloudapp.net/RiskManagerApp/htmlclient/</a>. To get the most out of the demo add yourself to the Employees table once you’ve logged in. Finally please join the conversation by leaving a comment to this post for any suggestions of thoughts.
+
 
